@@ -26,4 +26,18 @@ public class BinarySearchTest {
         assertFalse(res.isFound());
         assertEquals(resultNotFound, res.getPosition());
     }
+
+
+    @Test
+    public void elementShouldBeFoundIfIsOnFirstPositionInSequenceWithManyElements() {
+
+        int[] seq = {1, 3, 4, 5, 7, 10};
+        int key = 1;
+        final int firstPostion = 0;
+        SearchResult res = BinarySearch.search(key, seq);
+        assertTrue(res.isFound());
+        assertEquals(firstPostion, res.getPosition());
+        assertEquals(key, seq[res.getPosition()]);
+    }
+
 }
