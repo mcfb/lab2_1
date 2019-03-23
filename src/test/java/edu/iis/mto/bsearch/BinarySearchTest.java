@@ -40,4 +40,15 @@ public class BinarySearchTest {
         assertEquals(key, seq[res.getPosition()]);
     }
 
+    @Test
+    public void elementShouldBeFoundIfIsOnLastPositionInSequenceWithManyElements() {
+
+        int[] seq = {1, 3, 4, 5, 7, 10};
+        int key = 10;
+        final int lastPosition = seq.length - 1;
+        SearchResult res = BinarySearch.search(key, seq);
+        assertTrue(res.isFound());
+        assertEquals(lastPosition, res.getPosition());
+        assertEquals(key, seq[res.getPosition()]);
+    }
 }
