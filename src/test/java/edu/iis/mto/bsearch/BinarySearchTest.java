@@ -15,4 +15,15 @@ public class BinarySearchTest {
         assertTrue(res.isFound());
         assertEquals(key, seq[res.getPosition()]);
     }
+
+    @Test
+    public void resultShouldReturnFalseAndMinusOneAsPositionOfElementInSequenceConsistingOnlyOneElement() {
+
+        int[] seq = {3};
+        int key = 4;
+        final int resultNotFound = -1;
+        SearchResult res = BinarySearch.search(key, seq);
+        assertFalse(res.isFound());
+        assertEquals(resultNotFound, res.getPosition());
+    }
 }
