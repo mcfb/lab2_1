@@ -11,6 +11,7 @@ public class BinarySearchTest {
 
         int[] seq = {3};
         int key = 3;
+        checkSequenceLength(seq);
         SearchResult res = BinarySearch.search(key, seq);
         assertTrue(res.isFound());
         assertEquals(key, seq[res.getPosition()]);
@@ -22,6 +23,7 @@ public class BinarySearchTest {
         int[] seq = {3};
         int key = 4;
         final int resultNotFound = -1;
+        checkSequenceLength(seq);
         SearchResult res = BinarySearch.search(key, seq);
         assertFalse(res.isFound());
         assertEquals(resultNotFound, res.getPosition());
@@ -34,6 +36,7 @@ public class BinarySearchTest {
         int[] seq = {1, 3, 4, 5, 7, 10};
         int key = 1;
         final int firstPostion = 0;
+        checkSequenceLength(seq);
         SearchResult res = BinarySearch.search(key, seq);
         assertTrue(res.isFound());
         assertEquals(firstPostion, res.getPosition());
@@ -46,6 +49,7 @@ public class BinarySearchTest {
         int[] seq = {1, 3, 4, 5, 7, 10};
         int key = 10;
         final int lastPosition = seq.length - 1;
+        checkSequenceLength(seq);
         SearchResult res = BinarySearch.search(key, seq);
         assertTrue(res.isFound());
         assertEquals(lastPosition, res.getPosition());
@@ -58,6 +62,7 @@ public class BinarySearchTest {
         int[] seq = {1, 3, 4, 5, 7, 9, 10};
         int key = 5;
         final int middlePosition = seq.length / 2;
+        checkSequenceLength(seq);
         SearchResult res = BinarySearch.search(key, seq);
         assertTrue(res.isFound());
         assertEquals(middlePosition, res.getPosition());
@@ -70,9 +75,16 @@ public class BinarySearchTest {
         int[] seq = {1, 3, 4, 5, 7, 9, 10};
         int key = 12;
         final int resultNotFound = -1;
+        checkSequenceLength(seq);
         SearchResult res = BinarySearch.search(key, seq);
         assertFalse(res.isFound());
         assertEquals(resultNotFound, res.getPosition());
+    }
+
+    private void checkSequenceLength(int[] seq){
+        if (seq.length == 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
 }
